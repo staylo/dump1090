@@ -190,6 +190,7 @@ struct aircraft {
     uint32_t      addr;           // ICAO address
     char          flight[16];     // Flight number
     unsigned char signalLevel[8]; // Last 8 Signal Amplitudes
+    unsigned char signalMax;      // Highest recorded signal amplitutde
     int           altitude;       // Altitude
     int           speed;          // Velocity
     int           track;          // Angle of flight
