@@ -359,7 +359,7 @@ void interactiveShowData(void) {
 
     while(a && (count < Modes.interactive_rows)) {
 
-        if ((now - a->seen) < Modes.interactive_display_ttl)
+        if ((now - a->seen) < Modes.interactive_display_ttl || Modes.interactive_display_ttl == 0)
             {
             int msgs  = a->messages;
             int flags = a->modeACflags;
@@ -449,7 +449,7 @@ void interactiveRemoveStaleAircrafts(void) {
     time_t now = time(NULL);
 
     while(a) {
-        if ((now - a->seen) > Modes.interactive_delete_ttl) {
+        if ((now - a->seen) > Modes.interactive_delete_ttl && Modes.interactive_display_ttl != 0) {
             struct aircraft *next = a->next;
             // Remove the element from the linked list, with care
             // if we are removing the first element
