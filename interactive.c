@@ -442,6 +442,8 @@ void interactiveShowData(void) {
                     unsigned int signalAverage = (pSig[0] + pSig[1] + pSig[2] + pSig[3] + 
                                                   pSig[4] + pSig[5] + pSig[6] + pSig[7] + 3) >> 3; 
 		    unsigned int signalMax = a->signalMax;;
+                    if (signalAverage > 100 )
+		      printf("\a"); // Sound terminal bell
                     if ((flags & MODEAC_MSG_FLAG) == 0) {
                         strMode[0] = 'S';
                     } else if (flags & MODEAC_MSG_MODEA_ONLY) {
